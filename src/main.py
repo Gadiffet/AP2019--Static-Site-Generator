@@ -1,6 +1,9 @@
 import markdown
 import os
 import sys
+import subprocess
+
+subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "../requirement.txt"])
 
 def convertToHTML(convertToHTML):
     exts = ['markdown.extensions.extra', 'markdown.extensions.codehilite','markdown.extensions.tables','markdown.extensions.toc']
@@ -15,15 +18,24 @@ def convertToHTML(convertToHTML):
 %s
 </body>
 </html>
-'''
+           '''
 
     ret = markdown.markdown(convertToHTML,extensions=exts)
     return html % ret
 
+def question():
+    while "the answer is invalid":
+        reponse = str(input("Voulez vous lancer un serveur ? [y/n] : ")).lower().strip()
+        if reponse[:1] == 'y':
+            return True
+        if reponse[:1] == 'n':
+            return False
+    return reponse[:1]
+
 if __name__ == '__main__':
 
     if len(sys.argv) < 3:
-        print('usage: convertToHTML source_filename target_file')
+        print('usage: main.py some_markdown.md name_of_fill_you_want.html')
         sys.exit()
 
     infile = open(sys.argv[1],'r')
@@ -39,7 +51,9 @@ if __name__ == '__main__':
     outfile.write(convertToHTML(md))
     outfile.close()
 
-    print('convertToHTML %s to %s success!'%(sys.argv[1],sys.argv[2]))
+    print('Convertion %s vers %s success!'%(sys.argv[1],sys.argv[2]))
 
-    pip install -r requirement.txt
-    gunicorn --bind 0.0.0.0:8000 sys.argv[2]
+    if question() == True :
+        subprocess.check_call([sys.executable, "-m", "http.server"])
+    else :
+        print('La convertion est faite sans un serveur')
