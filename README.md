@@ -26,4 +26,4 @@ By mails :
 
 ## Links
 
-[How To Setup The Project](https://gitlab.com/T.Gadiffet/AP12019--Groupe3--ProjetWeb-ConnectLife/-/blob/master/DEVELOPERS.md)
+[How To Setup The Project](https://gitlab.com/T.Gadiffet/static-site-generator/-/blob/master/DEVELOPERS.md)
