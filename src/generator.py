@@ -1,6 +1,5 @@
 from markdown2 import markdown
 from jinja2 import Environment, FileSystemLoader
-from json import load
 import menu
 import os
 import sys
@@ -10,10 +9,11 @@ from shutil import copyfile
 env = Environment(loader=FileSystemLoader(searchpath='./'))
 template = env.get_template('template.html')
 
+def oneFile(markdownFile, htmlFile):
 
-def oneFile(markdownFile, htmlFile, titre):
+    nameHtmlFile, extension = os.path.splitext(htmlFile)
 
-    if markdownFile.endswith('.md') and htmlFile.endswith('html'):
+    if markdownFile.endswith('.md') and htmlFile.endswith('html') and nameHtmlFile.isalpha() is True :
 
         with open(markdownFile, 'r') as infile:
             site = markdown(
@@ -23,9 +23,6 @@ def oneFile(markdownFile, htmlFile, titre):
             )
             infile.close()
 
-        with open("config.json") as config_file:
-            config = load(config_file)
-
         if os.path.exists(htmlFile):
             os.remove(htmlFile)
 
@@ -33,12 +30,12 @@ def oneFile(markdownFile, htmlFile, titre):
             outfile.write(
                 template.render(
                     article=site,
-                    title=titre
+                    title=nameHtmlFile
                 )
             )
             outfile.close()
         print("\n*----*\n ")
-        print("*-- FICHIER CONVERTIT --*")
+        print("*-- FICHIER CONVERTI --*")
         print("*----*\n ")
     else:
         print("\n*----*\n ")
