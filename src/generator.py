@@ -9,11 +9,12 @@ from shutil import copyfile
 env = Environment(loader=FileSystemLoader(searchpath='./'))
 template = env.get_template('template.html')
 
+
 def oneFile(markdownFile, htmlFile):
 
     nameHtmlFile, extension = os.path.splitext(htmlFile)
 
-    if markdownFile.endswith('.md') and htmlFile.endswith('html') and nameHtmlFile.isalpha() is True :
+    if markdownFile.endswith('.md') and htmlFile.endswith('html') and nameHtmlFile.isalpha() is True:
 
         with open(markdownFile, 'r') as infile:
             site = markdown(

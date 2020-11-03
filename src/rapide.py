@@ -1,17 +1,18 @@
+from jinja2 import Environment, FileSystemLoader
+from markdown2 import markdown
 import os
 import sys
 import subprocess
 
-subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "../requirement.txt"])
+subprocess.check_call([sys.executable, "-m", "pip",
+                       "install", "-r", "../requirement.txt"])
 
-from markdown2 import markdown
-from jinja2 import Environment, FileSystemLoader
 
 env = Environment(loader=FileSystemLoader(searchpath='./'))
 template = env.get_template('template.html')
 
-markdownFile =  sys.argv[1]
-htmlFile =  sys.argv[2]
+markdownFile = sys.argv[1]
+htmlFile = sys.argv[2]
 
 nameHtmlFile, extension = os.path.splitext(htmlFile)
 
@@ -20,7 +21,7 @@ if len(sys.argv) < 3:
     sys.exit()
 
 
-if markdownFile.endswith('.md') and htmlFile.endswith('html') and nameHtmlFile.isalpha() is True :
+if markdownFile.endswith('.md') and htmlFile.endswith('html') and nameHtmlFile.isalpha() is True:
 
     with open(markdownFile, 'r') as infile:
         site = markdown(
@@ -30,10 +31,8 @@ if markdownFile.endswith('.md') and htmlFile.endswith('html') and nameHtmlFile.i
         )
         infile.close()
 
-
     if os.path.exists(htmlFile):
         os.remove(htmlFile)
-
 
     with open(htmlFile, 'x') as outfile:
         outfile.write(
@@ -44,7 +43,7 @@ if markdownFile.endswith('.md') and htmlFile.endswith('html') and nameHtmlFile.i
         )
         outfile.close()
 
-    print('Conversion %s vers %s success!'%(markdownFile,htmlFile))
+    print('Conversion %s vers %s success!' % (markdownFile, htmlFile))
 
 else:
     print("\n*----*\n ")

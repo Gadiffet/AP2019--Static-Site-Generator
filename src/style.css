@@ -1,7 +1,7 @@
 html {
     height: 100%;
 }
-   
+
 body {
     margin: 0;
     font-family: Impact, sans-serif;
@@ -16,13 +16,13 @@ header {
     background-color: #1d3348;
 }
 
-article{
+article {
     margin: 0;
     padding: 1rem 3rem 1rem 3rem;
-    background:#eeeeee;
+    background: #eeeeee;
 }
 
-footer{
+footer {
     display: flex;
     margin: 0;
     padding: 1rem 3rem 1rem 3rem;
@@ -34,15 +34,18 @@ strong {
     font-weight: 500;
     color: darkslategray;
 }
+
 th {
     border: 1px black solid;
     background-color: #347792;
     min-height: 10rem;
     min-width: 10rem;
 }
+
 td {
     border: 1px black solid;
 }
+
 a {
     color: steelblue;
     text-decoration: none;
@@ -62,21 +65,21 @@ img, a img {
 code {
     margin: 20px 0 20px 0;
     padding-left: 25px;
-    background-color:  #e7e7e7;
+    background-color: #e7e7e7;
     border-left: 5px solid darkgray;
 }
 
 blockquote {
     margin-top: 20px 0 20px 0;
     padding-left: 25px;
-    background-color:  #e7e7e7;
+    background-color: #e7e7e7;
     border-left: 5px solid darkgray;
-} 
+}
 
 h1 {
     font-size: 2em;
     font-weight: 600;
-    color:#d67903 ;
+    color: #d67903;
     padding: 1rem 0 1rem 0;
     border-top: 1px dashed black;
     border-bottom: 1px dashed black;
@@ -87,7 +90,7 @@ h2 {
     padding: 1rem 0 0 0;
     font-size: 1.5em;
     font-weight: 500;
-    color:  #347792 ;
+    color: #347792;
 }
 
 h3 {
@@ -97,12 +100,12 @@ h3 {
 }
 
 .title {
-    color:  #d67903 ;
+    color: #d67903;
     margin: 0 0 0 2rem;
     font-size: 3rem;
     font-weight: 600;
 }
 
 .anchor {
-    color:  #d67903 ;
+    color: #d67903;
 }
