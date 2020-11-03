@@ -53,7 +53,10 @@ def menuOneFile():
             if not extension:
                 htmlFile = htmlFile + '.html'
 
-            generator.oneFile(markdownFile, htmlFile)
+            titre = str(
+                input("Veuillez entrer le Titre de votre Site : "))
+
+            generator.oneFile(markdownFile, htmlFile, titre)
 
         if reponse[:1] == '0':
             menuPrincipal()
