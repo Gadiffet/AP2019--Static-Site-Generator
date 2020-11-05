@@ -1,10 +1,17 @@
-import sys
-from subprocess import check_call
-import os
+from flask import Flask, render_template, request
 
-check_call([sys.executable, "-m", "pip",
-                       "install", "-r", "../requirements.txt"])
+app = Flask(__name__)
+
+ENV = 'dev'
+
+if ENV == 'dev':
+    app.debug = True
+else:
+    app.debug = False
+
+@app.route('/')
+def template():
+    return render_template('template.html')
 
 if __name__ == '__main__':
-    import menu
-    menu.menuPrincipal()
+    app.run()
