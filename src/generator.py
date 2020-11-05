@@ -37,6 +37,9 @@ def oneFile(markdownFile, htmlFile):
         print("\n*----*\n ")
         print("*-- FICHIER CONVERTI --*")
         print("*----*\n ")
+
+        menu.menuDeploy()
+        
     else:
         print("\n*----*\n ")
         print("*-- Votre fichier comporte une extension différente du MarkDown ou bien le nom de votre fichier HTML n’est pas correct --*")

@@ -1,4 +1,5 @@
 import generator
+import deploy
 import sys
 import os
 
@@ -17,12 +18,8 @@ def menuPrincipal():
             input("Que souhaitez vous faire : ")).lower().strip()
         if reponse[:1] == '1':
             menuOneFile()
-        # if reponse[:1] == '2':
-        #     generator.folder()
-        # if reponse[:1] == '3':
-        #     generator.git()
-        # if reponse[:1] == '4':
-        #     generator.git()
+        if reponse[:1] == '2':
+            menuFolder()
         if reponse[:1] == '0':
             sys.exit()
     return reponse[:1]
@@ -58,8 +55,30 @@ def menuOneFile():
         if reponse[:1] == '0':
             menuPrincipal()
 
+def menuFolder():
+    while "the answer is invalid":
+        print("\n*----*\n ")
+        print("*-- Vous avez choisi de convertir 1 dossier MarkDown --*")
+        print("*-- 1: Convertir mon dossier MarkDown                --*\n")
+        print("*-- 0: Retour au Menu Principal                      --*\n")
+        print("*----*\n ")
+        reponse = str(
+            input("Que souhaitez vous faire : ")).lower().strip()
 
-def menuDeployement():
+        if reponse[:1] == '1':
+            markdownFolder = str(
+                input("Veuillez entrer le nom de votre dossier MarkDown : "))
+
+
+            htmlFolder = str(
+                input("Veuillez entrer le nom que vous souhaitez pour votre dossier HTML : "))
+
+            generator.oneFile(markdownFolder, htmlFolder)
+
+        if reponse[:1] == '0':
+            menuPrincipal()
+
+def menuDeploy():
     while "the answer is invalid":
         print("\n*----*\n ")
         print("*-- Votre Projet est converti, et maintenant :      --*")
@@ -70,7 +89,7 @@ def menuDeployement():
         reponse = str(
             input("Que souhaitez vous faire ?")).lower().strip()
         if reponse[:1] == '1':
-            return True
+            deploy.local()
         if reponse[:1] == '2':
             return False
         if reponse[:1] == '3':
