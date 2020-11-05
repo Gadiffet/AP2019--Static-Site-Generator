@@ -73,7 +73,10 @@ def menuFolder():
             htmlFolder = str(
                 input("Veuillez entrer le nom que vous souhaitez pour votre dossier HTML : "))
 
-            generator.oneFile(markdownFolder, htmlFolder)
+            if htmlFolder == markdownFolder :
+                htmlFolder = htmlFolder + '1'
+
+            generator.folder(markdownFolder, htmlFolder)
 
         if reponse[:1] == '0':
             menuPrincipal()
