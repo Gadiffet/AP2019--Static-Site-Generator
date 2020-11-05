@@ -15,7 +15,7 @@ def oneFile(markdownFile, htmlFile):
 
     if markdownFile.endswith('.md') and htmlFile.endswith('html') and nameHtmlFile.isalpha() is True:
 
-        with open(markdownFile, 'r') as infile:
+        with open('./conversion/' + markdownFile, 'r') as infile:
             site = markdown(
                 infile.read(),
                 extras=['tables', 'codehilite', 'toc', 'nl2br', 'fenced-code-blocks',
@@ -23,10 +23,10 @@ def oneFile(markdownFile, htmlFile):
             )
             infile.close()
 
-        if os.path.exists(htmlFile):
-            os.remove(htmlFile)
+        if os.path.exists('./conversion/' + htmlFile):
+            os.remove('./conversion/' + htmlFile)
 
-        with open(htmlFile, 'x') as outfile:
+        with open('./conversion/' + htmlFile, 'x') as outfile:
             outfile.write(
                 template.render(
                     article=site,
@@ -38,8 +38,8 @@ def oneFile(markdownFile, htmlFile):
         print("*-- FICHIER CONVERTI --*")
         print("*----*\n ")
 
-        menu.menuDeploy()
-        
+        menu.menuDeploy(htmlFile)
+
     else:
         print("\n*----*\n ")
         print("*-- Votre fichier comporte une extension différente du MarkDown ou bien le nom de votre fichier HTML n’est pas correct --*")

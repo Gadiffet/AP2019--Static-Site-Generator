@@ -78,7 +78,7 @@ def menuFolder():
         if reponse[:1] == '0':
             menuPrincipal()
 
-def menuDeploy():
+def menuDeploy(htmlFile):
     while "the answer is invalid":
         print("\n*----*\n ")
         print("*-- Votre Projet est converti, et maintenant :      --*")
@@ -91,7 +91,7 @@ def menuDeploy():
         if reponse[:1] == '1':
             deploy.local()
         if reponse[:1] == '2':
-            return False
-        if reponse[:1] == '3':
-            return False
+            deploy.web(htmlFile)
+        if reponse[:1] == '0':
+            menuPrincipal()
     return reponse[:1]
