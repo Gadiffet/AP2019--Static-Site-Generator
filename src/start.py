@@ -1,7 +1,8 @@
 import sys
-import subprocess
+from subprocess import check_call
+import os
 
-subprocess.check_call([sys.executable, "-m", "pip",
+check_call([sys.executable, "-m", "pip",
                        "install", "-r", "../requirement.txt"])
 
 if __name__ == '__main__':

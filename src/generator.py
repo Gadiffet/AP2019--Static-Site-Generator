@@ -4,7 +4,6 @@ import menu
 import os
 import sys
 import subprocess
-from shutil import copyfile
 
 env = Environment(loader=FileSystemLoader(searchpath='./'))
 template = env.get_template('template.html')
