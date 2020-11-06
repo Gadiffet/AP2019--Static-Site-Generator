@@ -35,10 +35,10 @@ def oneFile(markdownFile, htmlFile):
                 )
             )
             outfile.close()
+
         print("\n*----*\n ")
         print("*-- FICHIER CONVERTI --*")
         print("*----*\n ")
-
         menu.menuDeploy(htmlFile)
 
     else:

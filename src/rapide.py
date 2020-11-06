@@ -1,5 +1,3 @@
-from jinja2 import Environment, FileSystemLoader
-from markdown2 import markdown
 import os
 import sys
 import subprocess
@@ -7,6 +5,8 @@ import subprocess
 subprocess.check_call([sys.executable, "-m", "pip",
                        "install", "-r", "../requirements.txt"])
 
+from jinja2 import Environment, FileSystemLoader
+from markdown2 import markdown
 
 env = Environment(loader=FileSystemLoader(searchpath='./'))
 template = env.get_template('template.html')

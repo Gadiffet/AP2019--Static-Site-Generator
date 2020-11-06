@@ -10,8 +10,6 @@ def menuPrincipal():
         print("*-- Bienvenue dans le generateur de site Web Static --*\n")
         print("*-- 1: Convertir 1 fichier MarkDown en fichier HTML --*")
         print("*-- 2: Convertir 1 dossier MarkDown en dossier HTML --*")
-        print("*-- 3: Convertir 1 projet Git en dossier HTML       --*")
-        print("*-- 4: Convertir 1 preojet HTTP en dossier HTML     --*\n")
         print("*-- 0: Quitter le generateur                        --*\n")
         print("*----*\n ")
         reponse = str(
